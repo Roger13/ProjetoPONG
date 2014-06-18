@@ -1,0 +1,9 @@
+-- kbdex_ctrl responsável pelo input de teclado
+
+-- player_ctrl recebe os botões pressionados e converte para dados dos respectivos players 
+
+-- game_eng recebe os dados dos players e atualiza as posições e pontuações do jogo
+
+-- display_ctrl recebe as posições dos objetos a serem exibidos e monta as representações
+	
+-- (display_ctrl engloba o output driver!)

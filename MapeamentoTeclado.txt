@@ -1,0 +1,5 @@
+W: 001d
+s: 001b
+UP: E075
+DOWN: E072
+SPACE: 0029
