@@ -2,64 +2,74 @@
 Timing Analyzer Summary
 --------------------------------------------------------------------------------------
 
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 5.017 ns
+From           : PS2_CLK
+To             : kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|rcount[4]
+From Clock     : --
+To Clock       : clk27M
+Failed Paths   : 0
+
 Type           : Worst-case tco
 Slack          : N/A
 Required Time  : None
-Actual Time    : 12.102 ns
-From           : vgacon:vga_controller|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0|altsyncram_ske1:auto_generated|altsyncram_rsi1:altsyncram1|ram_block2a4~porta_address_reg11
-To             : green[0]
-From Clock     : CLOCK_27[0]
+Actual Time    : 12.774 ns
+From           : display_ctrl:display|vgacon:vga_controller|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0|altsyncram_o9f1:auto_generated|altsyncram_rsi1:altsyncram1|ram_block2a0~porta_address_reg11
+To             : blue[0]
+From Clock     : clk27M
 To Clock       : --
 Failed Paths   : 0
 
-Type           : Worst-case tpd
+Type           : Worst-case th
 Slack          : N/A
 Required Time  : None
-Actual Time    : 10.962 ns
-From           : score[5]
-To             : HEX2[6]
+Actual Time    : -1.871 ns
+From           : PS2_DAT
+To             : kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|sdata[5]
 From Clock     : --
-To Clock       : --
+To Clock       : clk27M
 Failed Paths   : 0
 
-Type           : Clock Setup: 'vgacon:vga_controller|vga_pll:divider|altpll:altpll_component|_clk0'
-Slack          : 14.512 ns
+Type           : Clock Setup: 'display_ctrl:display|vgacon:vga_controller|vga_pll:divider|altpll:altpll_component|_clk0'
+Slack          : 12.406 ns
 Required Time  : 25.20 MHz ( period = 39.682 ns )
-Actual Time    : 39.73 MHz ( period = 25.170 ns )
-From           : vgacon:vga_controller|v_count[7]
-To             : vgacon:vga_controller|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0|altsyncram_ske1:auto_generated|altsyncram_rsi1:altsyncram1|ram_block2a5~porta_address_reg11
-From Clock     : vgacon:vga_controller|vga_pll:divider|altpll:altpll_component|_clk0
-To Clock       : vgacon:vga_controller|vga_pll:divider|altpll:altpll_component|_clk0
+Actual Time    : 36.66 MHz ( period = 27.276 ns )
+From           : display_ctrl:display|vgacon:vga_controller|v_count[7]
+To             : display_ctrl:display|vgacon:vga_controller|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0|altsyncram_o9f1:auto_generated|altsyncram_rsi1:altsyncram1|ram_block2a1~porta_address_reg11
+From Clock     : display_ctrl:display|vgacon:vga_controller|vga_pll:divider|altpll:altpll_component|_clk0
+To Clock       : display_ctrl:display|vgacon:vga_controller|vga_pll:divider|altpll:altpll_component|_clk0
 Failed Paths   : 0
 
-Type           : Clock Setup: 'CLOCK_27[0]'
-Slack          : 33.959 ns
+Type           : Clock Setup: 'clk27M'
+Slack          : 30.845 ns
 Required Time  : 27.00 MHz ( period = 37.037 ns )
-Actual Time    : Restricted to 195.01 MHz ( period = 5.128 ns )
-From           : vgacon:vga_controller|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0|altsyncram_ske1:auto_generated|altsyncram_rsi1:altsyncram1|ram_block2a0~portb_datain_reg0
-To             : vgacon:vga_controller|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0|altsyncram_ske1:auto_generated|altsyncram_rsi1:altsyncram1|ram_block2a0~portb_memory_reg0
-From Clock     : CLOCK_27[0]
-To Clock       : CLOCK_27[0]
+Actual Time    : 161.50 MHz ( period = 6.192 ns )
+From           : kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|count[10]
+To             : kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|count[4]
+From Clock     : clk27M
+To Clock       : clk27M
 Failed Paths   : 0
 
-Type           : Clock Hold: 'vgacon:vga_controller|vga_pll:divider|altpll:altpll_component|_clk0'
-Slack          : 0.859 ns
-Required Time  : 25.20 MHz ( period = 39.682 ns )
-Actual Time    : N/A
-From           : vgacon:vga_controller|v_count[0]
-To             : vgacon:vga_controller|v_count_d[0]
-From Clock     : vgacon:vga_controller|vga_pll:divider|altpll:altpll_component|_clk0
-To Clock       : vgacon:vga_controller|vga_pll:divider|altpll:altpll_component|_clk0
-Failed Paths   : 0
-
-Type           : Clock Hold: 'CLOCK_27[0]'
-Slack          : 2.788 ns
+Type           : Clock Hold: 'clk27M'
+Slack          : -1.744 ns
 Required Time  : 27.00 MHz ( period = 37.037 ns )
 Actual Time    : N/A
-From           : vgacon:vga_controller|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0|altsyncram_ske1:auto_generated|altsyncram_rsi1:altsyncram1|ram_block2a0~portb_datain_reg0
-To             : vgacon:vga_controller|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0|altsyncram_ske1:auto_generated|altsyncram_rsi1:altsyncram1|ram_block2a0~portb_memory_reg0
-From Clock     : CLOCK_27[0]
-To Clock       : CLOCK_27[0]
+From           : kbdex_ctrl:kbd_ctrl|hdata[7]
+To             : kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|hdata[7]
+From Clock     : clk27M
+To Clock       : clk27M
+Failed Paths   : 2
+
+Type           : Clock Hold: 'display_ctrl:display|vgacon:vga_controller|vga_pll:divider|altpll:altpll_component|_clk0'
+Slack          : 0.770 ns
+Required Time  : 25.20 MHz ( period = 39.682 ns )
+Actual Time    : N/A
+From           : display_ctrl:display|vgacon:vga_controller|h_count[5]
+To             : display_ctrl:display|vgacon:vga_controller|h_count_d[5]
+From Clock     : display_ctrl:display|vgacon:vga_controller|vga_pll:divider|altpll:altpll_component|_clk0
+To Clock       : display_ctrl:display|vgacon:vga_controller|vga_pll:divider|altpll:altpll_component|_clk0
 Failed Paths   : 0
 
 Type           : Total number of failed paths
@@ -70,7 +80,7 @@ From           :
 To             : 
 From Clock     : 
 To Clock       : 
-Failed Paths   : 0
+Failed Paths   : 2
 
 --------------------------------------------------------------------------------------
 

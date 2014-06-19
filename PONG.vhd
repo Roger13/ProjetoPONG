@@ -1,17 +1,19 @@
 library ieee;
+library projetopong;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
-use pongPack.all;
+use projetopong.pongPack.all;
 
 entity PONG is
 	port ( CLOCK_24	: in STD_LOGIC_VECTOR (1 downto 0);	--	24 MHz
-		   CLOCK_27	: in STD_LOGIC_VECTOR (1 downto 0);	--	27 MHz
+		   clk27M	: in STD_LOGIC;	--	27 MHz
 		   CLOCK_50	: in STD_LOGIC;	--	50 MHz
-           SW : in std_logic_vector (9 downto 0) ; -- Botão de reset (SW[0])
+           KEY : in std_logic_vector (3 downto 0) ; -- Botão de reset (KEY(0))
            red, green, blue : out std_logic_vector(3 downto 0) ;
            hsync, vsync : out std_logic ; 
            PS2_DAT : inout std_logic ;	-- PS2 Data (keyboard)
-		   PS2_CLK : inout std_logic );	-- PS2 Clock (keyboard)	
+		   PS2_CLK : inout std_logic ;	-- PS2 Clock (keyboard)	
+		   HEX0,HEX1,HEX2,HEX3 : out std_logic_vector(6 downto 0));
 end PONG;
 
 architecture behaviour of PONG is
@@ -44,23 +46,23 @@ begin
 	
 	-- kbdex_ctrl responsável pelo input de teclado
 	kbd_ctrl : kbdex_ctrl generic map(24000) port map(
-		PS2_DAT, PS2_CLK, CLOCK_24(0), KEY(1), SW(0), "000",
+		PS2_DAT, PS2_CLK, clk27M, '1', '1', "111",
 		key_on, key_code(47 downto 0) => keys );
 	
 	-- player_ctrl recebe os botões pressionados e converte para dados dos respectivos players 
-	players : player_ctrl port map(
-		key_on, keys, players
-	);
+	--plys_ctrl : player_ctrl port map(
+	--	key_on, keys, players
+	--);
 	
 	-- game_eng recebe os dados dos players e atualiza as posições e pontuações do jogo
-	engine : game_eng port map(
-		players, SW(0), keys, key_on, data, score, CLOCK_27
-	);
+	  engine : game_eng port map(
+	  	players, KEY(0), keys, key_on, data, score, clk27M
+	  );
 	
 	-- display_ctrl recebe as posições dos objetos a serem exibidos e monta as representações
 	-- (display_ctrl engloba o output driver!)
 	display : display_ctrl port map(	
-		data, score, CLOCK_27, red, green, blue, hsync, vsync 
+		data, score, clk27M, red, green, blue, hsync, vsync ,HEX0,HEX1,HEX2,HEX3
 	);
 		
 end behaviour;

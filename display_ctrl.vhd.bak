@@ -5,13 +5,12 @@ use ieee.std_logic_unsigned.all;
 use projetopong.pongPack.all;
 
 entity display_ctrl is
--- data, score, CLOCK_27, red, green, blue, hsync, vsync 
 	port
 	(
 		-- Input ports
 		data	: in  int_array ;
 		score	: in std_logic_vector(7 downto 0) ;
-		CLOCK_27	: in STD_LOGIC_VECTOR (1 downto 0);	--	27 MHz
+		clk27M	: in STD_LOGIC;	--	27 MHz
 		
 		-- Output ports
 		red, green, blue : out std_logic_vector(3 downto 0) ;
@@ -21,33 +20,48 @@ entity display_ctrl is
 end display_ctrl;
 
 architecture behavior of display_ctrl is
-	signal rstn : std_logic;              -- reset active low para nossos
+signal rstn : std_logic;              -- reset active low para nossos
                                         -- circuitos sequenciais.
 
-	-- Interface com a memória de vídeo do controlador
+  -- Interface com a memória de vídeo do controlador
 
-	signal we : std_logic;                        -- write enable ('1' p/ escrita)
-	signal addr : integer range 0 to 12287;       -- endereco mem. vga
-	signal pixel : std_logic_vector(2 downto 0);  -- valor de cor do pixel
-	signal pixel_bit : std_logic;                 -- um bit do vetor acima
+  signal we : std_logic;                        -- write enable ('1' p/ escrita)
+  signal addr : integer range 0 to 12287;       -- endereco mem. vga
+  signal pixel : std_logic_vector(2 downto 0);  -- valor de cor do pixel
+  signal pixel_bit : std_logic;                 -- um bit do vetor acima
   
-	signal corTemp : std_logic_vector(2 downto 0); -- ARMAZENA A COR A SER ATRIBUIDA AO PIXEL!
+  signal corTemp : std_logic_vector(2 downto 0); -- ARMAZENA A COR A SER ATRIBUIDA AO PIXEL!
 
-	-- Sinais dos contadores de linhas e colunas utilizados para percorrer
-	-- as posições da memória de vídeo (pixels) no momento de construir um quadro.
+  -- Sinais dos contadores de linhas e colunas utilizados para percorrer
+  -- as posições da memória de vídeo (pixels) no momento de construir um quadro.
   
-	signal line : integer range 0 to 95;  -- linha atual
-	signal col : integer range 0 to 127;  -- coluna atual
+  signal line : integer range 0 to 95;  -- linha atual
+  signal col : integer range 0 to 127;  -- coluna atual
 
-	signal col_rstn : std_logic;          -- reset do contador de colunas
-	signal col_enable : std_logic;        -- enable do contador de colunas
+  signal col_rstn : std_logic;          -- reset do contador de colunas
+  signal col_enable : std_logic;        -- enable do contador de colunas
 
-	signal line_rstn : std_logic;          -- reset do contador de linhas
-	signal line_enable : std_logic;        -- enable do contador de linhas
+  signal line_rstn : std_logic;          -- reset do contador de linhas
+  signal line_enable : std_logic;        -- enable do contador de linhas
 
-	signal fim_escrita : std_logic;       -- '1' quando um quadro terminou de ser
+  signal fim_escrita : std_logic;       -- '1' quando um quadro terminou de ser
                                         -- escrito na memória de vídeo
+  -- Especificação dos tipos e sinais da máquina de estados de controle
+  type estado_t is (show_splash, inicio, constroi_quadro, move_bola);
+  signal estado: estado_t := show_splash;
+  signal proximo_estado: estado_t := show_splash;
 
+  -- Sinais para um contador utilizado para atrasar a atualização da
+  -- posição da bola, a fim de evitar que a animação fique excessivamente
+  -- veloz. Aqui utilizamos um contador de 0 a 270000, de modo que quando
+  -- alimentado com um clock de 27MHz, ele demore 10ms para contar até o final.
+  
+  signal contador : integer range 0 to 270000 - 1;  -- contador
+  signal timer : std_logic;        -- vale '1' quando o contador chegar ao fim
+  signal timer_rstn, timer_enable : std_logic;
+
+  signal temp : integer ; -- PRA DEBUGA
+  
 begin
 	
 	player1_p : conv_7seg port map (
@@ -61,39 +75,51 @@ begin
 	HEX1 <= "1111111";
 	HEX3 <= "1111111";
 	
-	vga_controller: vgacon port map (
-		clk27M       => CLOCK_27(0),
-		rstn         => '1',
-		red          => red,
-		green        => green,
-		blue         => blue,
-		hsync        => hsync,
-		vsync        => vsync,
-		write_clk    => CLOCK_27(0),
-		write_enable => we,
-		write_addr   => addr,
-		data_in      => pixel);
-	
+
+  -- Aqui instanciamos o controlador de vídeo, 128 colunas por 96 linhas
+  -- (aspect ratio 4:3). Os sinais que iremos utilizar para comunicar
+  -- com a memória de vídeo (para alterar o brilho dos pixels) são
+  -- write_clk (nosso clock), write_enable ('1' quando queremos escrever
+  -- o valor de um pixel), write_addr (endereço do pixel a escrever)
+  -- e data_in (valor do brilho do pixel RGB, 1 bit pra cada componente de cor)
+  vga_controller: entity work.vgacon port map (
+    clk27M       => clk27M,
+    rstn         => '1',
+    red          => red,
+    green        => green,
+    blue         => blue,
+    hsync        => hsync,
+    vsync        => vsync,
+    write_clk    => clk27M,
+    write_enable => we,
+    write_addr   => addr,
+    data_in      => pixel);
+
+  -----------------------------------------------------------------------------
+  -- Processos que controlam contadores de linhas e coluna para varrer
+  -- todos os endereços da memória de vídeo, no momento de construir um quadro.
+  -----------------------------------------------------------------------------
+
   -- purpose: Este processo conta o número da coluna atual, quando habilitado
   --          pelo sinal "col_enable".
   -- type   : sequential
   -- inputs : clk27M, col_rstn
   -- outputs: col
-  conta_coluna: process (CLOCK_27(0), col_rstn)
+  conta_coluna: process (clk27M, col_rstn)
   begin  -- process conta_coluna
-	if col_rstn = '0' then                  -- asynchronous reset (active low)
-	  col <= 0;
-	elsif CLOCK_27(0)'event and CLOCK_27(0) = '1' then  -- rising clock edge
-	  if col_enable = '1' then
-		if col = 127 then               -- conta de 0 a 127 (128 colunas)
-		  col <= 0;
-		else
-		  col <= col + 1;  
-		end if;
-	  end if;
-	end if;
+    if col_rstn = '0' then                  -- asynchronous reset (active low)
+      col <= 0;
+    elsif clk27M'event and clk27M = '1' then  -- rising clock edge
+      if col_enable = '1' then
+        if col = 127 then               -- conta de 0 a 127 (128 colunas)
+          col <= 0;
+        else
+          col <= col + 1;  
+        end if;
+      end if;
+    end if;
   end process conta_coluna;
-	
+    
   -- purpose: Este processo conta o número da linha atual, quando habilitado
   --          pelo sinal "line_enable".
   -- type   : sequential
@@ -101,25 +127,173 @@ begin
   -- outputs: line
   conta_linha: process (clk27M, line_rstn)
   begin  -- process conta_linha
-	if line_rstn = '0' then                  -- asynchronous reset (active low)
-	  line <= 0;
-	elsif CLOCK_27(0)'event and CLOCK_27(0) = '1' then  -- rising clock edge
-	  -- o contador de linha só incrementa quando o contador de colunas
-	  -- chegou ao fim (valor 127)
-	  if line_enable = '1' and col = 127 then
-		if line = 95 then               -- conta de 0 a 95 (96 linhas)
-		  line <= 0;
-		else
-		  line <= line + 1;  
-		end if;        
-	  end if;
-	end if;
+    if line_rstn = '0' then                  -- asynchronous reset (active low)
+      line <= 0;
+    elsif clk27M'event and clk27M = '1' then  -- rising clock edge
+      -- o contador de linha só incrementa quando o contador de colunas
+      -- chegou ao fim (valor 127)
+      if line_enable = '1' and col = 127 then
+        if line = 95 then               -- conta de 0 a 95 (96 linhas)
+          line <= 0;
+        else
+          line <= line + 1;  
+        end if;        
+      end if;
+    end if;
   end process conta_linha;
 
   -- Este sinal é útil para informar nossa lógica de controle quando
   -- o quadro terminou de ser escrito na memória de vídeo, para que
   -- possamos avançar para o próximo estado.
   fim_escrita <= '1' when (line = 95) and (col = 127)
-				 else '0';
+                 else '0'; 
+
+  -----------------------------------------------------------------------------
+  -- Brilho do pixel
+  -----------------------------------------------------------------------------
+  -- O brilho do pixel é branco quando os contadores de linha e coluna, que
+  -- indicam o endereço do pixel sendo escrito para o quadro atual, casam com a
+  -- posição da bola (sinais pos_x e pos_y). Caso contrário,
+  -- o pixel é preto.
+  
+  -- O endereço de memória pode ser construído com essa fórmula simples,
+  -- a partir da linha e coluna atual
+  temp <= 5;
+  
+  process(clk27M, rstn)
+  begin
+	if rstn = '0' then
+		pixel <= "000";
+		addr <= col + (128 * line);
+	elsif clk27M'event and clk27M = '1' then  
+		if (col >= 8 and col <= 9 and temp < line and line < temp + 20) or
+		(col >= 119 and col <= 120 and temp < line and line < temp + 20) or
+		(col = 63 and line = 47)
+		then -- Placa Player 1
+			pixel <= "001";
+			addr  <= col + (128 * line);
+		end if;
+		
+	end if;
+  end process;
+
+  -----------------------------------------------------------------------------
+  -- Processos que definem a FSM (finite state machine), nossa máquina
+  -- de estados de controle.
+  -----------------------------------------------------------------------------
+
+  -- purpose: Esta é a lógica combinacional que calcula sinais de saída a partir
+  --          do estado atual e alguns sinais de entrada (Máquina de Mealy).
+  -- type   : combinational
+  -- inputs : estado, fim_escrita, timer
+  -- outputs: proximo_estado, atualiza_pos_x, atualiza_pos_y, line_rstn,
+  --          line_enable, col_rstn, col_enable, we, timer_enable, timer_rstn
+  logica_mealy: process (estado, fim_escrita, timer)
+  begin  -- process logica_mealy
+    case estado is
+      when inicio         => if timer = '1' then              
+                               proximo_estado <= constroi_quadro;
+                             else
+                               proximo_estado <= inicio;
+                             end if;
+                           --  atualiza_pos_x <= '0';
+                           --  atualiza_pos_y <= '0';
+                             line_rstn      <= '0';  -- reset é active low!
+                             line_enable    <= '1';
+                             col_rstn       <= '0';  -- reset é active low!
+                             col_enable     <= '1';
+                             we             <= '0';
+                             timer_rstn     <= '1';  -- reset é active low!
+                             timer_enable   <= '1';
+
+      when constroi_quadro=> if fim_escrita = '1' then
+                               proximo_estado <= move_bola;
+                             else
+                               proximo_estado <= constroi_quadro;
+                             end if;
+                             --atualiza_pos_x <= '0';
+                             --atualiza_pos_y <= '0';
+                             line_rstn      <= '1';
+                             line_enable    <= '1';
+                             col_rstn       <= '1';
+                             col_enable     <= '1';
+                             we             <= '1';
+                             timer_rstn     <= '0'; 
+                             timer_enable   <= '0';
+
+      when move_bola      => proximo_estado <= inicio;
+                             --atualiza_pos_x <= '1';
+                             --atualiza_pos_y <= '1';
+                             line_rstn      <= '1';
+                             line_enable    <= '0';
+                             col_rstn       <= '1';
+                             col_enable     <= '0';
+                             we             <= '0';
+                             timer_rstn     <= '0'; 
+                             timer_enable   <= '0';
+
+      when others         => proximo_estado <= inicio;
+                             --atualiza_pos_x <= '0';
+                             --atualiza_pos_y <= '0';
+                             line_rstn      <= '1';
+                             line_enable    <= '0';
+                             col_rstn       <= '1';
+                             col_enable     <= '0';
+                             we             <= '0';
+                             timer_rstn     <= '1'; 
+                             timer_enable   <= '0';
+      
+    end case;
+  end process logica_mealy;
+  
+  -- purpose: Avança a FSM para o próximo estado
+  -- type   : sequential
+  -- inputs : clk27M, rstn, proximo_estado
+  -- outputs: estado
+  seq_fsm: process (clk27M, rstn)
+  begin  -- process seq_fsm
+    if rstn = '0' then                  -- asynchronous reset (active low)
+      estado <= inicio;
+    elsif clk27M'event and clk27M = '1' then  -- rising clock edge
+      estado <= proximo_estado;
+    end if;
+  end process seq_fsm;
+
+  -----------------------------------------------------------------------------
+  -- Processos do contador utilizado para atrasar a animação (evitar
+  -- que a atualização de quadros fique excessivamente veloz).
+  -----------------------------------------------------------------------------
+  -- purpose: Incrementa o contador a cada ciclo de clock
+  -- type   : sequential
+  -- inputs : clk27M, timer_rstn
+  -- outputs: contador, timer
+  p_contador: process (clk27M, timer_rstn)
+  begin  -- process p_contador
+    if timer_rstn = '0' then            -- asynchronous reset (active low)
+      contador <= 0;
+    elsif clk27M'event and clk27M = '1' then  -- rising clock edge
+      if timer_enable = '1' then       
+        if contador = 270000 - 1 then
+          contador <= 0;
+        else
+          contador <=  contador + 1;        
+        end if;
+      end if;
+    end if;
+  end process p_contador;
+
+  -- purpose: Calcula o sinal "timer" que indica quando o contador chegou ao
+  --          final
+  -- type   : combinational
+  -- inputs : contador
+  -- outputs: timer
+  p_timer: process (contador)
+  begin  -- process p_timer
+    if contador = 270000 - 1 then
+      timer <= '1';
+    else
+      timer <= '0';
+    end if;
+  end process p_timer;
 
 end behavior;

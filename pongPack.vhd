@@ -21,5 +21,23 @@ package pongPack is
 			hsync, vsync              : out std_logic);
 	END COMPONENT ;
     
+    COMPONENT display_ctrl
+		port(data	: in  int_array ;
+		score	: in std_logic_vector(7 downto 0) ;
+		clk27M	: in STD_LOGIC;	--	27 MHz
+		red, green, blue : out std_logic_vector(3 downto 0) ;
+        hsync, vsync : out std_logic ;
+        HEX0,HEX1,HEX2,HEX3 : out std_logic_vector(6 downto 0));
+	END COMPONENT ;
+	
+	COMPONENT game_eng
+		port ( players	: in STD_LOGIC_VECTOR (3 downto 0);	--	teclas precionados (p1 UP, p1 DOWN, p2 UP, p2 DOWN)
+		   rstn	: in STD_LOGIC;
+   		   keys : in std_logic_vector(47 downto 0);
+		   key_on : in std_logic_vector(2 downto 0);	
+           data : out int_array;
+           score : std_logic_vector(7 downto 0);
+           clk : in STD_LOGIC);
+	END COMPONENT ;
      
 end package pongPack;

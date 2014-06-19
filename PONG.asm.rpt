@@ -1,5 +1,5 @@
 Assembler report for PONG
-Wed Jun 18 17:15:51 2014
+Thu Jun 19 16:34:52 2014
 Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
@@ -38,9 +38,9 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Wed Jun 18 17:15:51 2014 ;
+; Assembler Status      ; Successful - Thu Jun 19 16:34:52 2014 ;
 ; Revision Name         ; PONG                                  ;
-; Top-level Entity Name ; display_ctrl                          ;
+; Top-level Entity Name ; PONG                                  ;
 ; Family                ; Cyclone II                            ;
 ; Device                ; EP2C20F484C7                          ;
 +-----------------------+---------------------------------------+
@@ -95,7 +95,7 @@ applicable agreement for further details.
 +----------------+--------------------------------------------------------+
 ; Device         ; EP2C20F484C7                                           ;
 ; JTAG usercode  ; 0xFFFFFFFF                                             ;
-; Checksum       ; 0x001DFD84                                             ;
+; Checksum       ; 0x00205FB7                                             ;
 +----------------+--------------------------------------------------------+
 
 
@@ -106,7 +106,7 @@ applicable agreement for further details.
 +--------------------+----------------------------------------------------+
 ; Device             ; EPCS16                                             ;
 ; JTAG usercode      ; 0x00000000                                         ;
-; Checksum           ; 0x1DD13007                                         ;
+; Checksum           ; 0x1DCCAE0D                                         ;
 ; Compression Ratio  ; 3                                                  ;
 +--------------------+----------------------------------------------------+
 
@@ -117,14 +117,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Assembler
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
-    Info: Processing started: Wed Jun 18 17:15:49 2014
+    Info: Processing started: Thu Jun 19 16:34:50 2014
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off PONG -c PONG
 Info: Writing out detailed assembly data for power analysis
 Info: Assembler is generating device programming files
 Info: Quartus II Assembler was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 228 megabytes
-    Info: Processing ended: Wed Jun 18 17:15:51 2014
+    Info: Processing ended: Thu Jun 19 16:34:52 2014
     Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
 
 
