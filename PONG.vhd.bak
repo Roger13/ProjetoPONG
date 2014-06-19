@@ -40,24 +40,25 @@ architecture behaviour of PONG is
 	signal keys : std_logic_vector(47 downto 0);
 	signal key_on : std_logic_vector(2 downto 0);
 
-	signal players : std_logic_vector(3 downto 0);  
+	signal players : std_logic_vector(3 downto 0); 
+	signal space : std_logic; 
 
 begin
 	
 	-- kbdex_ctrl responsável pelo input de teclado
---	kbd_ctrl : kbdex_ctrl generic map(24000) port map(
---		PS2_DAT, PS2_CLK, CLOCK_24(0), '1', '1', "111",
---		key_on, key_code(47 downto 0) => keys );
+	kbd_ctrl : kbdex_ctrl generic map(24000) port map(
+		PS2_DAT, PS2_CLK, clk27M, '1', '1', "111",
+		key_on, key_code(47 downto 0) => keys );
 	
 	-- player_ctrl recebe os botões pressionados e converte para dados dos respectivos players 
-	--plys_ctrl : player_ctrl port map(
-	--	key_on, keys, players
-	--);
+	   plys_ctrl : player_ctrl port map(
+		key_on, keys, players, space
+	  );
 	
 	-- game_eng recebe os dados dos players e atualiza as posições e pontuações do jogo
-	--  engine : game_eng port map(
-	--  	players, KEY(0), keys, key_on, data, score, CLOCK_27(0)
-	--  );
+	  engine : game_eng port map(
+	  	players, KEY(2), data, score, clk27M
+	  );
 	
 	-- display_ctrl recebe as posições dos objetos a serem exibidos e monta as representações
 	-- (display_ctrl engloba o output driver!)

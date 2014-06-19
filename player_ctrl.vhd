@@ -1,0 +1,45 @@
+library ieee;
+library projetopong;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+use projetopong.pongPack.all;
+  
+entity player_ctrl is
+	port ( 
+		   key_on : in STD_LOGIC_VECTOR(2 downto 0) ;
+		   keys : in STD_LOGIC_VECTOR(47 downto 0) ;
+		   players	: out STD_LOGIC_VECTOR (3 downto 0) ;	--	teclas precionados (p1 UP, p1 DOWN, p2 UP, p2 DOWN)
+		   space : out STD_LOGIC 
+		   );
+end player_ctrl;
+
+architecture behaviour of player_ctrl is
+
+	
+begin
+	
+	process (key_on, keys)
+
+	begin
+		players <= "0000";
+		space <= '0';
+		
+		for n in 0 to 2 loop
+			if(key_on(n) = '1') then
+				if keys((n * 16) + 15 downto n * 16) = "0000000000101001" then
+					space <= '1';
+				elsif keys((n * 16) + 15 downto n * 16) = "0000000000011101" then -- player 1 UP
+					players(0) <= '1';
+				elsif keys((n * 16) + 15 downto n * 16) = "1110000001110101" then -- player 2 UP
+					players(2) <= '1';
+				elsif keys((n * 16) + 15 downto n * 16) = "0000000000011011" then -- player 1 DOWN
+					players(1) <= '1';
+				elsif keys((n * 16) + 15 downto n * 16) = "1110000001110010" then -- player 2 DOWN
+					players(3) <= '1';	
+				end if;
+			end if;
+		end loop;
+
+	end process;
+
+end behaviour;

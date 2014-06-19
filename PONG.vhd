@@ -40,7 +40,8 @@ architecture behaviour of PONG is
 	signal keys : std_logic_vector(47 downto 0);
 	signal key_on : std_logic_vector(2 downto 0);
 
-	signal players : std_logic_vector(3 downto 0);  
+	signal players : std_logic_vector(3 downto 0); 
+	signal space : std_logic; 
 
 begin
 	
@@ -50,13 +51,13 @@ begin
 		key_on, key_code(47 downto 0) => keys );
 	
 	-- player_ctrl recebe os botões pressionados e converte para dados dos respectivos players 
-	--plys_ctrl : player_ctrl port map(
-	--	key_on, keys, players
-	--);
+	   plys_ctrl : player_ctrl port map(
+		key_on, keys, players, space
+	  );
 	
 	-- game_eng recebe os dados dos players e atualiza as posições e pontuações do jogo
 	  engine : game_eng port map(
-	  	players, KEY(0), keys, key_on, data, score, clk27M
+	  	players, KEY(2), space, data, score, clk27M
 	  );
 	
 	-- display_ctrl recebe as posições dos objetos a serem exibidos e monta as representações

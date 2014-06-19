@@ -166,13 +166,17 @@ begin
 		pixel <= "000";
 		addr <= col + (128 * line);
 	elsif clk27M'event and clk27M = '1' then  
-		if (col >= 8 and col <= 9 and temp < line and line < temp + 20) or
+		if (col >= 8 and col <= 9 and data(0) < line and line < data(0) + 20) or 
 		(col >= 119 and col <= 120 and temp < line and line < temp + 20) or
 		(col = 63 and line = 47)
 		then -- Placa Player 1
-			pixel <= "001";
+			pixel <= "001";	
+			addr  <= col + (128 * line);
+		else 
+			pixel <= "000";
 			addr  <= col + (128 * line);
 		end if;
+		
 		
 	end if;
   end process;
@@ -196,8 +200,6 @@ begin
                              else
                                proximo_estado <= inicio;
                              end if;
-                           --  atualiza_pos_x <= '0';
-                           --  atualiza_pos_y <= '0';
                              line_rstn      <= '0';  -- reset é active low!
                              line_enable    <= '1';
                              col_rstn       <= '0';  -- reset é active low!
@@ -211,8 +213,6 @@ begin
                              else
                                proximo_estado <= constroi_quadro;
                              end if;
-                             --atualiza_pos_x <= '0';
-                             --atualiza_pos_y <= '0';
                              line_rstn      <= '1';
                              line_enable    <= '1';
                              col_rstn       <= '1';
@@ -222,8 +222,6 @@ begin
                              timer_enable   <= '0';
 
       when move_bola      => proximo_estado <= inicio;
-                             --atualiza_pos_x <= '1';
-                             --atualiza_pos_y <= '1';
                              line_rstn      <= '1';
                              line_enable    <= '0';
                              col_rstn       <= '1';
@@ -233,8 +231,6 @@ begin
                              timer_enable   <= '0';
 
       when others         => proximo_estado <= inicio;
-                             --atualiza_pos_x <= '0';
-                             --atualiza_pos_y <= '0';
                              line_rstn      <= '1';
                              line_enable    <= '0';
                              col_rstn       <= '1';
