@@ -20,8 +20,8 @@ architecture behaviour of game_eng is
 	signal tick, tick2 : std_logic;
 	signal reset : std_logic := '0';
 	signal moving : std_logic;
-	signal ball_dir: std_logic_vector(1 downto 0); -- (0) = '0' baixo, (0) = '1' cima, (1) = '0' direita, (1) = '1' esquerda
-	
+	signal ball_dir: std_logic_vector(1 downto 0); -- (1) = '0' baixo, (1) = '1' cima, (0) = '0' direita, (0) = '1' esquerda
+	signal temp : integer;     -- sinal auxiliar. Por alguma razão, usar o data(2) na condicional fazia o player 2 ficar praticamente travado.
 begin
   
   reset_process: process (tick)
@@ -70,6 +70,8 @@ begin
 		if reset = '0' then
 			data(2) <= 63;
 			data(3) <= 47;
+			moving <= '0';
+			score <= "00000000";
 		end if;
 		
 		if space = '1' then
@@ -81,31 +83,44 @@ begin
 				if data(2) = 127  then   -- ponto p2
 					data(2) <= 63;
 					data(3) <= 47;
+					moving <= '0';
 					score(3 downto 0) <= score(3 downto 0) + '1';
 				elsif (data(2) = 119 and data(3) >= data(1) and data(3) < data(1) + 20) then
 					ball_dir(0) <= '1';
+					if(data(3) < data(1) + 10) then
+						ball_dir(1) <= '1'; 
+					else
+						ball_dir(1) <= '0';
+					end if;
 				else
 					data(2) <= data(2) + 1;
 				end if;
-			else
+			else					  -- Movimento direita
 				if data(2) = 0 then    -- ponto p1
 					data(2) <= 63;
 					data(3) <= 47;
+					moving <= '0';
 					score(7 downto 4) <= score(7 downto 4) + '1';
 				elsif (data(2) = 9 and data(3) >= data(0) and data(3) < data(0) + 20) then
 					ball_dir(0) <= '0';
+					temp <= data(0);
+					if(data(3) < temp + 10) then
+						ball_dir(1) <= '1'; 
+					else
+						ball_dir(1) <= '0';
+					end if;
 				else
 					data(2) <= data(2) - 1;
 				end if;
 			end if;
 			
-			if ball_dir(1) = '0' then -- Movimento esquerda
-				if data(3) = 95  then -- teste
+			if ball_dir(1) = '0' then -- Movimento baixo
+				if data(3) = 95  then
 					ball_dir(1) <= '1';
 				else
 					data(3) <= data(3) + 1;
 				end if;
-			else
+			else					  -- Movimento cima
 				if data(3) = 0 then
 					ball_dir(1) <= '0';
 				else

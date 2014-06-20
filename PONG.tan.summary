@@ -5,7 +5,7 @@ Timing Analyzer Summary
 Type           : Worst-case tsu
 Slack          : N/A
 Required Time  : None
-Actual Time    : 4.720 ns
+Actual Time    : 5.476 ns
 From           : PS2_DAT
 To             : kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|parchecked
 From Clock     : --
@@ -15,9 +15,9 @@ Failed Paths   : 0
 Type           : Worst-case tco
 Slack          : N/A
 Required Time  : None
-Actual Time    : 13.196 ns
-From           : score[4]
-To             : HEX2[5]
+Actual Time    : 13.152 ns
+From           : score[2]
+To             : HEX0[3]
 From Clock     : clk27M
 To Clock       : --
 Failed Paths   : 0
@@ -25,49 +25,49 @@ Failed Paths   : 0
 Type           : Worst-case th
 Slack          : N/A
 Required Time  : None
-Actual Time    : -0.757 ns
+Actual Time    : -0.949 ns
 From           : PS2_DAT
-To             : kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|sdata[3]
+To             : kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|sdata[0]
 From Clock     : --
 To Clock       : clk27M
 Failed Paths   : 0
 
 Type           : Clock Setup: 'display_ctrl:display|vgacon:vga_controller|vga_pll:divider|altpll:altpll_component|_clk0'
-Slack          : 13.710 ns
+Slack          : 13.298 ns
 Required Time  : 25.20 MHz ( period = 39.682 ns )
-Actual Time    : 38.50 MHz ( period = 25.972 ns )
-From           : display_ctrl:display|vgacon:vga_controller|v_count[7]
-To             : display_ctrl:display|vgacon:vga_controller|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0|altsyncram_o9f1:auto_generated|altsyncram_rsi1:altsyncram1|ram_block2a8~porta_address_reg11
+Actual Time    : 37.90 MHz ( period = 26.384 ns )
+From           : display_ctrl:display|vgacon:vga_controller|v_count[8]
+To             : display_ctrl:display|vgacon:vga_controller|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0|altsyncram_o9f1:auto_generated|altsyncram_rsi1:altsyncram1|ram_block2a5~porta_address_reg11
 From Clock     : display_ctrl:display|vgacon:vga_controller|vga_pll:divider|altpll:altpll_component|_clk0
 To Clock       : display_ctrl:display|vgacon:vga_controller|vga_pll:divider|altpll:altpll_component|_clk0
 Failed Paths   : 0
 
 Type           : Clock Setup: 'clk27M'
-Slack          : 23.728 ns
+Slack          : 23.586 ns
 Required Time  : 27.00 MHz ( period = 37.037 ns )
-Actual Time    : 75.14 MHz ( period = 13.309 ns )
-From           : game_eng:engine|data[1][4]~reg0
-To             : game_eng:engine|data[2][28]~reg0
+Actual Time    : 74.34 MHz ( period = 13.451 ns )
+From           : game_eng:engine|data[0][2]~reg0
+To             : game_eng:engine|temp[0]
 From Clock     : clk27M
 To Clock       : clk27M
 Failed Paths   : 0
 
 Type           : Clock Hold: 'clk27M'
-Slack          : -1.541 ns
+Slack          : -1.977 ns
 Required Time  : 27.00 MHz ( period = 37.037 ns )
 Actual Time    : N/A
 From           : kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|sigclkreleased
-To             : kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|\TOPS2:count[2]
+To             : kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|ps2_data~en_emulated
 From Clock     : clk27M
 To Clock       : clk27M
-Failed Paths   : 8
+Failed Paths   : 10
 
 Type           : Clock Hold: 'display_ctrl:display|vgacon:vga_controller|vga_pll:divider|altpll:altpll_component|_clk0'
-Slack          : 0.860 ns
+Slack          : 0.620 ns
 Required Time  : 25.20 MHz ( period = 39.682 ns )
 Actual Time    : N/A
-From           : display_ctrl:display|vgacon:vga_controller|v_count[0]
-To             : display_ctrl:display|vgacon:vga_controller|v_count_d[0]
+From           : display_ctrl:display|vgacon:vga_controller|h_count[9]
+To             : display_ctrl:display|vgacon:vga_controller|h_count_d[9]
 From Clock     : display_ctrl:display|vgacon:vga_controller|vga_pll:divider|altpll:altpll_component|_clk0
 To Clock       : display_ctrl:display|vgacon:vga_controller|vga_pll:divider|altpll:altpll_component|_clk0
 Failed Paths   : 0
@@ -80,7 +80,7 @@ From           :
 To             : 
 From Clock     : 
 To Clock       : 
-Failed Paths   : 8
+Failed Paths   : 10
 
 --------------------------------------------------------------------------------------
 
