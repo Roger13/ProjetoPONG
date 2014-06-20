@@ -167,7 +167,7 @@ begin
 		(col >= 119 and col <= 120 and data(1) < line and line < data(1) + 20) or
 		(col = data(2) and line = data(3))
 		then
-			pixel <= "001";	
+			pixel <= "111";	
 			addr  <= col + (128 * line);
 		else 
 			pixel <= "000";

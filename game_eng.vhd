@@ -22,6 +22,7 @@ architecture behaviour of game_eng is
 	signal moving : std_logic;
 	signal ball_dir: std_logic_vector(1 downto 0); -- (1) = '0' baixo, (1) = '1' cima, (0) = '0' direita, (0) = '1' esquerda
 	signal temp : integer;     -- sinal auxiliar. Por alguma razão, usar o data(2) na condicional fazia o player 2 ficar praticamente travado.
+	signal temp2 : std_logic_vector(7 downto 0) ;
 begin
   
   reset_process: process (tick)
@@ -30,6 +31,7 @@ begin
 		if reset = '0' then
 			reset <= '1';
 		end if;
+		temp2 <= score;
 		if rstn = '0' then
 			reset <= '0';
 		end if;
@@ -84,14 +86,9 @@ begin
 					data(2) <= 63;
 					data(3) <= 47;
 					moving <= '0';
-					score(3 downto 0) <= score(3 downto 0) + '1';
+					score(7 downto 4) <= score(7 downto 4) + '1';
 				elsif (data(2) = 119 and data(3) >= data(1) and data(3) < data(1) + 20) then
 					ball_dir(0) <= '1';
-					if(data(3) < data(1) + 10) then
-						ball_dir(1) <= '1'; 
-					else
-						ball_dir(1) <= '0';
-					end if;
 				else
 					data(2) <= data(2) + 1;
 				end if;
@@ -100,15 +97,9 @@ begin
 					data(2) <= 63;
 					data(3) <= 47;
 					moving <= '0';
-					score(7 downto 4) <= score(7 downto 4) + '1';
+					score(3 downto 0) <= score(3 downto 0) + '1';
 				elsif (data(2) = 9 and data(3) >= data(0) and data(3) < data(0) + 20) then
 					ball_dir(0) <= '0';
-					temp <= data(0);
-					if(data(3) < temp + 10) then
-						ball_dir(1) <= '1'; 
-					else
-						ball_dir(1) <= '0';
-					end if;
 				else
 					data(2) <= data(2) - 1;
 				end if;

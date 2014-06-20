@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PONG
-Fri Jun 20 18:12:48 2014
+Fri Jun 20 18:26:15 2014
 Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
@@ -64,15 +64,15 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +------------------------------------+----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jun 20 18:12:48 2014        ;
+; Analysis & Synthesis Status        ; Successful - Fri Jun 20 18:26:15 2014        ;
 ; Quartus II Version                 ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
 ; Revision Name                      ; PONG                                         ;
 ; Top-level Entity Name              ; PONG                                         ;
 ; Family                             ; Cyclone II                                   ;
-; Total logic elements               ; 1,480                                        ;
-;     Total combinational functions  ; 1,373                                        ;
-;     Dedicated logic registers      ; 419                                          ;
-; Total registers                    ; 419                                          ;
+; Total logic elements               ; 1,326                                        ;
+;     Total combinational functions  ; 1,249                                        ;
+;     Dedicated logic registers      ; 387                                          ;
+; Total registers                    ; 387                                          ;
 ; Total pins                         ; 52                                           ;
 ; Total virtual pins                 ; 0                                            ;
 ; Total memory bits                  ; 36,864                                       ;
@@ -206,20 +206,20 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+--------+
 ; Resource                                    ; Usage  ;
 +---------------------------------------------+--------+
-; Estimated Total logic elements              ; 1,480  ;
+; Estimated Total logic elements              ; 1,326  ;
 ;                                             ;        ;
-; Total combinational functions               ; 1373   ;
+; Total combinational functions               ; 1249   ;
 ; Logic element usage by number of LUT inputs ;        ;
-;     -- 4 input functions                    ; 357    ;
-;     -- 3 input functions                    ; 467    ;
-;     -- <=2 input functions                  ; 549    ;
+;     -- 4 input functions                    ; 361    ;
+;     -- 3 input functions                    ; 397    ;
+;     -- <=2 input functions                  ; 491    ;
 ;                                             ;        ;
 ; Logic elements by mode                      ;        ;
-;     -- normal mode                          ; 693    ;
-;     -- arithmetic mode                      ; 680    ;
+;     -- normal mode                          ; 689    ;
+;     -- arithmetic mode                      ; 560    ;
 ;                                             ;        ;
-; Total registers                             ; 419    ;
-;     -- Dedicated logic registers            ; 419    ;
+; Total registers                             ; 387    ;
+;     -- Dedicated logic registers            ; 387    ;
 ;     -- I/O registers                        ; 0      ;
 ;                                             ;        ;
 ; I/O pins                                    ; 52     ;
@@ -227,8 +227,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Total PLLs                                  ; 1      ;
 ; Maximum fan-out node                        ; clk27M ;
 ; Maximum fan-out                             ; 191    ;
-; Total fan-out                               ; 5405   ;
-; Average fan-out                             ; 2.92   ;
+; Total fan-out                               ; 5003   ;
+; Average fan-out                             ; 2.95   ;
 +---------------------------------------------+--------+
 
 
@@ -237,7 +237,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                              ; Library Name ;
 +-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |PONG                                           ; 1373 (2)          ; 419 (8)      ; 36864       ; 0            ; 0       ; 0         ; 52   ; 0            ; |PONG                                                                                                                                                                            ; work         ;
+; |PONG                                           ; 1249 (2)          ; 387 (8)      ; 36864       ; 0            ; 0       ; 0         ; 52   ; 0            ; |PONG                                                                                                                                                                            ; work         ;
 ;    |display_ctrl:display|                       ; 462 (214)         ; 94 (52)      ; 36864       ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|display_ctrl:display                                                                                                                                                       ;              ;
 ;       |conv_7seg:player1_p|                     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|display_ctrl:display|conv_7seg:player1_p                                                                                                                                   ;              ;
 ;       |conv_7seg:player2_p|                     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|display_ctrl:display|conv_7seg:player2_p                                                                                                                                   ;              ;
@@ -258,9 +258,9 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;                   |alt_u_div_82f:divider|       ; 81 (81)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|display_ctrl:display|vgacon:vga_controller|lpm_divide:Div1|lpm_divide_9em:auto_generated|sign_div_unsign_jlh:divider|alt_u_div_82f:divider                                 ;              ;
 ;          |vga_pll:divider|                      ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|display_ctrl:display|vgacon:vga_controller|vga_pll:divider                                                                                                                 ;              ;
 ;             |altpll:altpll_component|           ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|display_ctrl:display|vgacon:vga_controller|vga_pll:divider|altpll:altpll_component                                                                                         ;              ;
-;    |game_eng:engine|                            ; 653 (653)         ; 184 (184)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|game_eng:engine                                                                                                                                                            ;              ;
-;    |kbdex_ctrl:kbd_ctrl|                        ; 219 (90)          ; 133 (58)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|kbdex_ctrl:kbd_ctrl                                                                                                                                                        ;              ;
-;       |ps2_iobase:ps2_ctrl|                     ; 129 (129)         ; 75 (75)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl                                                                                                                                    ;              ;
+;    |game_eng:engine|                            ; 527 (527)         ; 152 (152)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|game_eng:engine                                                                                                                                                            ;              ;
+;    |kbdex_ctrl:kbd_ctrl|                        ; 221 (90)          ; 133 (58)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|kbdex_ctrl:kbd_ctrl                                                                                                                                                        ;              ;
+;       |ps2_iobase:ps2_ctrl|                     ; 131 (131)         ; 75 (75)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl                                                                                                                                    ;              ;
 ;    |player_ctrl:plys_ctrl|                      ; 37 (37)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|player_ctrl:plys_ctrl                                                                                                                                                      ;              ;
 +-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -376,12 +376,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 419   ;
+; Total registers                              ; 387   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 64    ;
 ; Number of registers using Asynchronous Clear ; 127   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 156   ;
+; Number of registers using Clock Enable       ; 124   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -391,14 +391,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------------------------------------------+---------+
 ; Inverted Register                                      ; Fan out ;
 +--------------------------------------------------------+---------+
-; kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|sigclkreleased ; 2       ;
-; game_eng:engine|temp[31]                               ; 1       ;
-; game_eng:engine|temp[0]                                ; 1       ;
+; kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|sigclkreleased ; 3       ;
 ; kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|fcount[5]      ; 2       ;
 ; kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|fcount[7]      ; 2       ;
 ; kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|rcount[5]      ; 2       ;
 ; kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|rcount[7]      ; 2       ;
-; Total number of inverted registers = 7                 ;         ;
+; Total number of inverted registers = 5                 ;         ;
 +--------------------------------------------------------+---------+
 
 
@@ -418,15 +416,15 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |PONG|kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|count[7] ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |PONG|game_eng:engine|data[0][1]~reg0                  ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |PONG|game_eng:engine|data[1][16]~reg0                 ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PONG|score[3]                                         ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |PONG|kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|count[0] ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |PONG|game_eng:engine|data[0][3]~reg0                  ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |PONG|game_eng:engine|data[1][31]~reg0                 ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PONG|score[1]                                         ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PONG|score[4]                                         ;
-; 6:1                ; 32 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |PONG|game_eng:engine|data[2][19]~reg0                 ;
-; 6:1                ; 32 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |PONG|game_eng:engine|data[3][12]~reg0                 ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |PONG|game_eng:engine|data[2][7]~reg0                  ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |PONG|game_eng:engine|data[3][13]~reg0                 ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |PONG|kbdex_ctrl:kbd_ctrl|nstate.EXT1                  ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |PONG|kbdex_ctrl:kbd_ctrl|Selector13                   ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |PONG|kbdex_ctrl:kbd_ctrl|Selector10                   ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |PONG|kbdex_ctrl:kbd_ctrl|Selector12                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
 
@@ -1032,7 +1030,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
-    Info: Processing started: Fri Jun 20 18:12:43 2014
+    Info: Processing started: Fri Jun 20 18:26:10 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PONG -c PONG
 Info: Found 6 design units, including 3 entities, in source file vgacon.vhd
     Info: Found design unit 1: vgacon-behav
@@ -1261,17 +1259,17 @@ Warning: Design contains 6 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[0]"
     Warning (15610): No output dependent on input pin "KEY[1]"
     Warning (15610): No output dependent on input pin "KEY[3]"
-Info: Implemented 1549 device resources after synthesis - the final resource count might be different
+Info: Implemented 1395 device resources after synthesis - the final resource count might be different
     Info: Implemented 8 input pins
     Info: Implemented 42 output pins
     Info: Implemented 2 bidirectional pins
-    Info: Implemented 1487 logic cells
+    Info: Implemented 1333 logic cells
     Info: Implemented 9 RAM segments
     Info: Implemented 1 PLLs
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 62 warnings
     Info: Peak virtual memory: 254 megabytes
-    Info: Processing ended: Fri Jun 20 18:12:48 2014
+    Info: Processing ended: Fri Jun 20 18:26:15 2014
     Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:07
+    Info: Total CPU time (on all processors): 00:00:06
 
 
