@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Thu Jun 19 17:43:44 2014
+Analysis & Synthesis Status : Successful - Fri Jun 20 16:55:12 2014
 Quartus II Version : 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition
 Revision Name : PONG
 Top-level Entity Name : PONG
 Family : Cyclone II
-Total logic elements : 863
-    Total combinational functions : 787
-    Dedicated logic registers : 311
-Total registers : 311
+Total logic elements : 1,342
+    Total combinational functions : 1,265
+    Dedicated logic registers : 386
+Total registers : 386
 Total pins : 52
 Total virtual pins : 0
 Total memory bits : 36,864

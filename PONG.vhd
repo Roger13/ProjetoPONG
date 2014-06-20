@@ -63,7 +63,7 @@ begin
 	-- display_ctrl recebe as posições dos objetos a serem exibidos e monta as representações
 	-- (display_ctrl engloba o output driver!)
 	display : display_ctrl port map(	
-		data, score, clk27M, red, green, blue, hsync, vsync ,HEX0,HEX1,HEX2,HEX3
+		data, score, clk27M, red, green, blue, hsync, vsync ,HEX0, HEX1, HEX2, HEX3
 	);
 		
 end behaviour;

@@ -9,7 +9,7 @@ entity display_ctrl is
 	(
 		-- Input ports
 		data	: in  int_array ;
-		score	: in std_logic_vector(7 downto 0) ;
+		score	: inout std_logic_vector(7 downto 0) ;
 		clk27M	: in STD_LOGIC;	--	27 MHz
 		
 		-- Output ports
@@ -165,8 +165,8 @@ begin
 	elsif clk27M'event and clk27M = '1' then  
 		if (col >= 8 and col <= 9 and data(0) < line and line < data(0) + 20) or 
 		(col >= 119 and col <= 120 and data(1) < line and line < data(1) + 20) or
-		(col = 63 and line = 47)
-		then -- Placa Player 1
+		(col = data(2) and line = data(3))
+		then
 			pixel <= "001";	
 			addr  <= col + (128 * line);
 		else 

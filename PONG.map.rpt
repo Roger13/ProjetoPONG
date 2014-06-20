@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PONG
-Thu Jun 19 17:43:44 2014
+Fri Jun 20 16:55:12 2014
 Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
@@ -64,15 +64,15 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +------------------------------------+----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Jun 19 17:43:44 2014        ;
+; Analysis & Synthesis Status        ; Successful - Fri Jun 20 16:55:12 2014        ;
 ; Quartus II Version                 ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
 ; Revision Name                      ; PONG                                         ;
 ; Top-level Entity Name              ; PONG                                         ;
 ; Family                             ; Cyclone II                                   ;
-; Total logic elements               ; 863                                          ;
-;     Total combinational functions  ; 787                                          ;
-;     Dedicated logic registers      ; 311                                          ;
-; Total registers                    ; 311                                          ;
+; Total logic elements               ; 1,342                                        ;
+;     Total combinational functions  ; 1,265                                        ;
+;     Dedicated logic registers      ; 386                                          ;
+; Total registers                    ; 386                                          ;
 ; Total pins                         ; 52                                           ;
 ; Total virtual pins                 ; 0                                            ;
 ; Total memory bits                  ; 36,864                                       ;
@@ -171,34 +171,34 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                        ;
-+----------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                    ;
-+----------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------+
-; vgacon.vhd                       ; yes             ; User VHDL File                         ; C:/Users/Roger/Git/MC613/ProjetoPONG/vgacon.vhd                 ;
-; conv_7seg.vhd                    ; yes             ; User VHDL File                         ; C:/Users/Roger/Git/MC613/ProjetoPONG/conv_7seg.vhd              ;
-; kbdex_ctrl.vhd                   ; yes             ; User VHDL File                         ; C:/Users/Roger/Git/MC613/ProjetoPONG/kbdex_ctrl.vhd             ;
-; display_ctrl.vhd                 ; yes             ; User VHDL File                         ; C:/Users/Roger/Git/MC613/ProjetoPONG/display_ctrl.vhd           ;
-; pongPack.vhd                     ; yes             ; User VHDL File                         ; C:/Users/Roger/Git/MC613/ProjetoPONG/pongPack.vhd               ;
-; PONG.vhd                         ; yes             ; User VHDL File                         ; C:/Users/Roger/Git/MC613/ProjetoPONG/PONG.vhd                   ;
-; game_eng.vhd                     ; yes             ; User VHDL File                         ; C:/Users/Roger/Git/MC613/ProjetoPONG/game_eng.vhd               ;
-; player_ctrl.vhd                  ; yes             ; User VHDL File                         ; C:/Users/Roger/Git/MC613/ProjetoPONG/player_ctrl.vhd            ;
-; ps2_iobase.vhd                   ; yes             ; Auto-Found VHDL File                   ; C:/Users/Roger/Git/MC613/ProjetoPONG/ps2_iobase.vhd             ;
-; altpll.tdf                       ; yes             ; Megafunction                           ; c:/altera/91sp2/quartus/libraries/megafunctions/altpll.tdf      ;
-; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/altera/91sp2/quartus/libraries/megafunctions/altsyncram.tdf  ;
-; db/altsyncram_o9f1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/Roger/Git/MC613/ProjetoPONG/db/altsyncram_o9f1.tdf     ;
-; db/altsyncram_rsi1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/Roger/Git/MC613/ProjetoPONG/db/altsyncram_rsi1.tdf     ;
-; vga_mem.mif                      ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Roger/Git/MC613/ProjetoPONG/vga_mem.mif                ;
-; db/decode_3oa.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/Roger/Git/MC613/ProjetoPONG/db/decode_3oa.tdf          ;
-; db/mux_eib.tdf                   ; yes             ; Auto-Generated Megafunction            ; C:/Users/Roger/Git/MC613/ProjetoPONG/db/mux_eib.tdf             ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                           ; c:/altera/91sp2/quartus/libraries/megafunctions/lpm_divide.tdf  ;
-; db/lpm_divide_9em.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/Users/Roger/Git/MC613/ProjetoPONG/db/lpm_divide_9em.tdf      ;
-; db/sign_div_unsign_jlh.tdf       ; yes             ; Auto-Generated Megafunction            ; C:/Users/Roger/Git/MC613/ProjetoPONG/db/sign_div_unsign_jlh.tdf ;
-; db/alt_u_div_82f.tdf             ; yes             ; Auto-Generated Megafunction            ; C:/Users/Roger/Git/MC613/ProjetoPONG/db/alt_u_div_82f.tdf       ;
-; db/add_sub_lkc.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/Roger/Git/MC613/ProjetoPONG/db/add_sub_lkc.tdf         ;
-; db/add_sub_mkc.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/Roger/Git/MC613/ProjetoPONG/db/add_sub_mkc.tdf         ;
-+----------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                       ;
++----------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                   ;
++----------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------+
+; vgacon.vhd                       ; yes             ; User VHDL File                         ; E:/UNICAMP/MC613/ProjetoPONG/vgacon.vhd                        ;
+; conv_7seg.vhd                    ; yes             ; User VHDL File                         ; E:/UNICAMP/MC613/ProjetoPONG/conv_7seg.vhd                     ;
+; kbdex_ctrl.vhd                   ; yes             ; User VHDL File                         ; E:/UNICAMP/MC613/ProjetoPONG/kbdex_ctrl.vhd                    ;
+; display_ctrl.vhd                 ; yes             ; User VHDL File                         ; E:/UNICAMP/MC613/ProjetoPONG/display_ctrl.vhd                  ;
+; pongPack.vhd                     ; yes             ; User VHDL File                         ; E:/UNICAMP/MC613/ProjetoPONG/pongPack.vhd                      ;
+; PONG.vhd                         ; yes             ; User VHDL File                         ; E:/UNICAMP/MC613/ProjetoPONG/PONG.vhd                          ;
+; game_eng.vhd                     ; yes             ; User VHDL File                         ; E:/UNICAMP/MC613/ProjetoPONG/game_eng.vhd                      ;
+; player_ctrl.vhd                  ; yes             ; User VHDL File                         ; E:/UNICAMP/MC613/ProjetoPONG/player_ctrl.vhd                   ;
+; ps2_iobase.vhd                   ; yes             ; Auto-Found VHDL File                   ; E:/UNICAMP/MC613/ProjetoPONG/ps2_iobase.vhd                    ;
+; altpll.tdf                       ; yes             ; Megafunction                           ; c:/altera/91sp2/quartus/libraries/megafunctions/altpll.tdf     ;
+; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/altera/91sp2/quartus/libraries/megafunctions/altsyncram.tdf ;
+; db/altsyncram_o9f1.tdf           ; yes             ; Auto-Generated Megafunction            ; E:/UNICAMP/MC613/ProjetoPONG/db/altsyncram_o9f1.tdf            ;
+; db/altsyncram_rsi1.tdf           ; yes             ; Auto-Generated Megafunction            ; E:/UNICAMP/MC613/ProjetoPONG/db/altsyncram_rsi1.tdf            ;
+; vga_mem.mif                      ; yes             ; Auto-Found Memory Initialization File  ; E:/UNICAMP/MC613/ProjetoPONG/vga_mem.mif                       ;
+; db/decode_3oa.tdf                ; yes             ; Auto-Generated Megafunction            ; E:/UNICAMP/MC613/ProjetoPONG/db/decode_3oa.tdf                 ;
+; db/mux_eib.tdf                   ; yes             ; Auto-Generated Megafunction            ; E:/UNICAMP/MC613/ProjetoPONG/db/mux_eib.tdf                    ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                           ; c:/altera/91sp2/quartus/libraries/megafunctions/lpm_divide.tdf ;
+; db/lpm_divide_9em.tdf            ; yes             ; Auto-Generated Megafunction            ; E:/UNICAMP/MC613/ProjetoPONG/db/lpm_divide_9em.tdf             ;
+; db/sign_div_unsign_jlh.tdf       ; yes             ; Auto-Generated Megafunction            ; E:/UNICAMP/MC613/ProjetoPONG/db/sign_div_unsign_jlh.tdf        ;
+; db/alt_u_div_82f.tdf             ; yes             ; Auto-Generated Megafunction            ; E:/UNICAMP/MC613/ProjetoPONG/db/alt_u_div_82f.tdf              ;
+; db/add_sub_lkc.tdf               ; yes             ; Auto-Generated Megafunction            ; E:/UNICAMP/MC613/ProjetoPONG/db/add_sub_lkc.tdf                ;
+; db/add_sub_mkc.tdf               ; yes             ; Auto-Generated Megafunction            ; E:/UNICAMP/MC613/ProjetoPONG/db/add_sub_mkc.tdf                ;
++----------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -206,20 +206,20 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+--------+
 ; Resource                                    ; Usage  ;
 +---------------------------------------------+--------+
-; Estimated Total logic elements              ; 863    ;
+; Estimated Total logic elements              ; 1,342  ;
 ;                                             ;        ;
-; Total combinational functions               ; 787    ;
+; Total combinational functions               ; 1265   ;
 ; Logic element usage by number of LUT inputs ;        ;
-;     -- 4 input functions                    ; 222    ;
-;     -- 3 input functions                    ; 205    ;
-;     -- <=2 input functions                  ; 360    ;
+;     -- 4 input functions                    ; 329    ;
+;     -- 3 input functions                    ; 433    ;
+;     -- <=2 input functions                  ; 503    ;
 ;                                             ;        ;
 ; Logic elements by mode                      ;        ;
-;     -- normal mode                          ; 469    ;
-;     -- arithmetic mode                      ; 318    ;
+;     -- normal mode                          ; 699    ;
+;     -- arithmetic mode                      ; 566    ;
 ;                                             ;        ;
-; Total registers                             ; 311    ;
-;     -- Dedicated logic registers            ; 311    ;
+; Total registers                             ; 386    ;
+;     -- Dedicated logic registers            ; 386    ;
 ;     -- I/O registers                        ; 0      ;
 ;                                             ;        ;
 ; I/O pins                                    ; 52     ;
@@ -227,8 +227,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Total PLLs                                  ; 1      ;
 ; Maximum fan-out node                        ; clk27M ;
 ; Maximum fan-out                             ; 191    ;
-; Total fan-out                               ; 3313   ;
-; Average fan-out                             ; 2.86   ;
+; Total fan-out                               ; 5079   ;
+; Average fan-out                             ; 2.96   ;
 +---------------------------------------------+--------+
 
 
@@ -237,8 +237,10 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                              ; Library Name ;
 +-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |PONG                                           ; 787 (1)           ; 311 (0)      ; 36864       ; 0            ; 0       ; 0         ; 52   ; 0            ; |PONG                                                                                                                                                                            ; work         ;
-;    |display_ctrl:display|                       ; 424 (190)         ; 94 (52)      ; 36864       ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|display_ctrl:display                                                                                                                                                       ;              ;
+; |PONG                                           ; 1265 (9)          ; 386 (8)      ; 36864       ; 0            ; 0       ; 0         ; 52   ; 0            ; |PONG                                                                                                                                                                            ; work         ;
+;    |display_ctrl:display|                       ; 462 (214)         ; 94 (52)      ; 36864       ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|display_ctrl:display                                                                                                                                                       ;              ;
+;       |conv_7seg:player1_p|                     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|display_ctrl:display|conv_7seg:player1_p                                                                                                                                   ;              ;
+;       |conv_7seg:player2_p|                     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|display_ctrl:display|conv_7seg:player2_p                                                                                                                                   ;              ;
 ;       |vgacon:vga_controller|                   ; 234 (59)          ; 42 (40)      ; 36864       ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|display_ctrl:display|vgacon:vga_controller                                                                                                                                 ;              ;
 ;          |dual_clock_ram:vgamem|                ; 6 (0)             ; 2 (0)        ; 36864       ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|display_ctrl:display|vgacon:vga_controller|dual_clock_ram:vgamem                                                                                                           ;              ;
 ;             |altsyncram:ram_block_rtl_0|        ; 6 (0)             ; 2 (0)        ; 36864       ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|display_ctrl:display|vgacon:vga_controller|dual_clock_ram:vgamem|altsyncram:ram_block_rtl_0                                                                                ;              ;
@@ -256,7 +258,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;                   |alt_u_div_82f:divider|       ; 81 (81)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|display_ctrl:display|vgacon:vga_controller|lpm_divide:Div1|lpm_divide_9em:auto_generated|sign_div_unsign_jlh:divider|alt_u_div_82f:divider                                 ;              ;
 ;          |vga_pll:divider|                      ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|display_ctrl:display|vgacon:vga_controller|vga_pll:divider                                                                                                                 ;              ;
 ;             |altpll:altpll_component|           ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|display_ctrl:display|vgacon:vga_controller|vga_pll:divider|altpll:altpll_component                                                                                         ;              ;
-;    |game_eng:engine|                            ; 111 (111)         ; 84 (84)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|game_eng:engine                                                                                                                                                            ;              ;
+;    |game_eng:engine|                            ; 543 (543)         ; 151 (151)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|game_eng:engine                                                                                                                                                            ;              ;
 ;    |kbdex_ctrl:kbd_ctrl|                        ; 219 (90)          ; 133 (58)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|kbdex_ctrl:kbd_ctrl                                                                                                                                                        ;              ;
 ;       |ps2_iobase:ps2_ctrl|                     ; 129 (129)         ; 75 (75)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl                                                                                                                                    ;              ;
 ;    |player_ctrl:plys_ctrl|                      ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PONG|player_ctrl:plys_ctrl                                                                                                                                                      ;              ;
@@ -338,6 +340,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Register name                                         ; Reason for Removal                                             ;
 +-------------------------------------------------------+----------------------------------------------------------------+
 ; display_ctrl:display|pixel[1..2]                      ; Stuck at GND due to stuck port data_in                         ;
+; game_eng:engine|moving                                ; Stuck at VCC due to stuck port data_in                         ;
 ; kbdex_ctrl:kbd_ctrl|key2code[8..12]                   ; Stuck at GND due to stuck port data_in                         ;
 ; kbdex_ctrl:kbd_ctrl|laststate[1..2]                   ; Stuck at VCC due to stuck port data_in                         ;
 ; kbdex_ctrl:kbd_ctrl|hdata[4]                          ; Stuck at GND due to stuck port data_in                         ;
@@ -355,7 +358,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|hdata[2]      ; Merged with kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|sigsending ;
 ; kbdex_ctrl:kbd_ctrl|hdata[3,5..6]                     ; Merged with kbdex_ctrl:kbd_ctrl|hdata[7]                       ;
 ; kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|hdata[3,5..6] ; Merged with kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|hdata[7]   ;
-; Total Number of Removed Registers = 40                ;                                                                ;
+; Total Number of Removed Registers = 41                ;                                                                ;
 +-------------------------------------------------------+----------------------------------------------------------------+
 
 
@@ -374,9 +377,9 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 311   ;
+; Total registers                              ; 386   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Synchronous Load   ; 104   ;
 ; Number of registers using Asynchronous Clear ; 127   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 122   ;
@@ -409,16 +412,20 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +------------------------------------------------------------------------------+-------------------------------------------------------------------------------+------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |PONG|kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|count[0] ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |PONG|kbdex_ctrl:kbd_ctrl|nstate.CODE                  ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |PONG|kbdex_ctrl:kbd_ctrl|Selector10                   ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |PONG|kbdex_ctrl:kbd_ctrl|Selector9                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |PONG|kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|count[11] ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |PONG|game_eng:engine|data[0][25]~reg0                  ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |PONG|game_eng:engine|data[1][12]~reg0                  ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |PONG|game_eng:engine|data[2][14]~reg0                  ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |PONG|game_eng:engine|data[3][25]~reg0                  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |PONG|kbdex_ctrl:kbd_ctrl|nstate.EXT1                   ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |PONG|kbdex_ctrl:kbd_ctrl|Selector10                    ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |PONG|kbdex_ctrl:kbd_ctrl|Selector12                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -464,8 +471,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------+-------+---------------------------------------------------------------+
 ; Parameter Name  ; Value ; Type                                                          ;
 +-----------------+-------+---------------------------------------------------------------+
-; NUM_HORZ_PIXELS ; 128   ; Signed Integer                                                ;
-; NUM_VERT_PIXELS ; 96    ; Signed Integer                                                ;
+; num_horz_pixels ; 128   ; Signed Integer                                                ;
+; num_vert_pixels ; 96    ; Signed Integer                                                ;
 +-----------------+-------+---------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -1022,7 +1029,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
-    Info: Processing started: Thu Jun 19 17:43:40 2014
+    Info: Processing started: Fri Jun 20 16:55:07 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PONG -c PONG
 Info: Found 6 design units, including 3 entities, in source file vgacon.vhd
     Info: Found design unit 1: vgacon-behav
@@ -1052,7 +1059,6 @@ Info: Found 2 design units, including 1 entities, in source file player_ctrl.vhd
     Info: Found design unit 1: player_ctrl-behaviour
     Info: Found entity 1: player_ctrl
 Info: Elaborating entity "PONG" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at PONG.vhd(38): used implicit default value for signal "score" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Info: Elaborating entity "kbdex_ctrl" for hierarchy "kbdex_ctrl:kbd_ctrl"
 Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(125): signal "en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at kbdex_ctrl.vhd(148): signal "fetchdata" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
@@ -1097,6 +1103,7 @@ Info: Elaborating entity "ps2_iobase" for hierarchy "kbdex_ctrl:kbd_ctrl|ps2_iob
 Warning (10492): VHDL Process Statement warning at ps2_iobase.vhd(161): signal "sigsending" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info: Elaborating entity "player_ctrl" for hierarchy "player_ctrl:plys_ctrl"
 Info: Elaborating entity "game_eng" for hierarchy "game_eng:engine"
+Warning (10036): Verilog HDL or VHDL warning at game_eng.vhd(20): object "tick2" assigned a value but never read
 Info: Elaborating entity "display_ctrl" for hierarchy "display_ctrl:display"
 Warning (10541): VHDL Signal Declaration warning at display_ctrl.vhd(23): used implicit default value for signal "rstn" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Info: Elaborating entity "conv_7seg" for hierarchy "display_ctrl:display|conv_7seg:player1_p"
@@ -1157,70 +1164,6 @@ Info: Instantiated megafunction "display_ctrl:display|vgacon:vga_controller|vga_
     Info: Parameter "port_extclk2" = "PORT_UNUSED"
     Info: Parameter "port_extclk3" = "PORT_UNUSED"
 Info: Elaborating entity "dual_clock_ram" for hierarchy "display_ctrl:display|vgacon:vga_controller|dual_clock_ram:vgamem"
-Warning: Node "game_eng:engine|data[2][31]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][30]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][29]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][28]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][27]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][26]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][25]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][24]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][23]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][22]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][21]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][20]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][19]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][18]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][17]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][16]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][15]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][14]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][13]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][12]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][11]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][10]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][9]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][8]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][7]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][6]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][5]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][4]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][3]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][2]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][1]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[2][0]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][31]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][30]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][29]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][28]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][27]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][26]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][25]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][24]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][23]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][22]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][21]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][20]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][19]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][18]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][17]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][16]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][15]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][14]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][13]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][12]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][11]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][10]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][9]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][8]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][7]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][6]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][5]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][4]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][3]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][2]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][1]" is stuck at GND because node is in wire loop and does not have a source
-Warning: Node "game_eng:engine|data[3][0]" is stuck at GND because node is in wire loop and does not have a source
 Info: Inferred 1 megafunctions from design logic
     Info: Inferred altsyncram megafunction from the following design logic: "display_ctrl:display|vgacon:vga_controller|dual_clock_ram:vgamem|ram_block~18" 
         Info: Parameter OPERATION_MODE set to DUAL_PORT
@@ -1293,13 +1236,6 @@ Info: DEV_CLRn pin will set, and not reset, register with preset signal due to N
 Warning: Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
     Warning (13310): Register "kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|ps2_data~en" is converted into an equivalent circuit using register "kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|ps2_data~en_emulated" and latch "kbdex_ctrl:kbd_ctrl|ps2_iobase:ps2_ctrl|ps2_data~enlatch"
 Warning: Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX0[0]" is stuck at GND
-    Warning (13410): Pin "HEX0[1]" is stuck at GND
-    Warning (13410): Pin "HEX0[2]" is stuck at GND
-    Warning (13410): Pin "HEX0[3]" is stuck at GND
-    Warning (13410): Pin "HEX0[4]" is stuck at GND
-    Warning (13410): Pin "HEX0[5]" is stuck at GND
-    Warning (13410): Pin "HEX0[6]" is stuck at VCC
     Warning (13410): Pin "HEX1[0]" is stuck at VCC
     Warning (13410): Pin "HEX1[1]" is stuck at VCC
     Warning (13410): Pin "HEX1[2]" is stuck at VCC
@@ -1307,13 +1243,6 @@ Warning: Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX1[4]" is stuck at VCC
     Warning (13410): Pin "HEX1[5]" is stuck at VCC
     Warning (13410): Pin "HEX1[6]" is stuck at VCC
-    Warning (13410): Pin "HEX2[0]" is stuck at GND
-    Warning (13410): Pin "HEX2[1]" is stuck at GND
-    Warning (13410): Pin "HEX2[2]" is stuck at GND
-    Warning (13410): Pin "HEX2[3]" is stuck at GND
-    Warning (13410): Pin "HEX2[4]" is stuck at GND
-    Warning (13410): Pin "HEX2[5]" is stuck at GND
-    Warning (13410): Pin "HEX2[6]" is stuck at VCC
     Warning (13410): Pin "HEX3[0]" is stuck at VCC
     Warning (13410): Pin "HEX3[1]" is stuck at VCC
     Warning (13410): Pin "HEX3[2]" is stuck at VCC
@@ -1321,25 +1250,24 @@ Warning: Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX3[4]" is stuck at VCC
     Warning (13410): Pin "HEX3[5]" is stuck at VCC
     Warning (13410): Pin "HEX3[6]" is stuck at VCC
-Warning: Design contains 7 input pin(s) that do not drive logic
+Warning: Design contains 6 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "CLOCK_24[0]"
     Warning (15610): No output dependent on input pin "CLOCK_24[1]"
     Warning (15610): No output dependent on input pin "CLOCK_50"
     Warning (15610): No output dependent on input pin "KEY[0]"
     Warning (15610): No output dependent on input pin "KEY[1]"
-    Warning (15610): No output dependent on input pin "KEY[2]"
     Warning (15610): No output dependent on input pin "KEY[3]"
-Info: Implemented 932 device resources after synthesis - the final resource count might be different
+Info: Implemented 1411 device resources after synthesis - the final resource count might be different
     Info: Implemented 8 input pins
     Info: Implemented 42 output pins
     Info: Implemented 2 bidirectional pins
-    Info: Implemented 870 logic cells
+    Info: Implemented 1349 logic cells
     Info: Implemented 9 RAM segments
     Info: Implemented 1 PLLs
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 140 warnings
-    Info: Peak virtual memory: 252 megabytes
-    Info: Processing ended: Thu Jun 19 17:43:44 2014
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:05
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 61 warnings
+    Info: Peak virtual memory: 254 megabytes
+    Info: Processing ended: Fri Jun 20 16:55:12 2014
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:07
 
 

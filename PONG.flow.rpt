@@ -1,5 +1,5 @@
 Flow report for PONG
-Thu Jun 19 17:43:54 2014
+Fri Jun 20 16:55:23 2014
 Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Flow Summary                                                                      ;
 +------------------------------------+----------------------------------------------+
-; Flow Status                        ; Successful - Thu Jun 19 17:43:54 2014        ;
+; Flow Status                        ; Successful - Fri Jun 20 16:55:23 2014        ;
 ; Quartus II Version                 ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
 ; Revision Name                      ; PONG                                         ;
 ; Top-level Entity Name              ; PONG                                         ;
@@ -46,10 +46,10 @@ applicable agreement for further details.
 ; Device                             ; EP2C20F484C7                                 ;
 ; Timing Models                      ; Final                                        ;
 ; Met timing requirements            ; No                                           ;
-; Total logic elements               ; 818 / 18,752 ( 4 % )                         ;
-;     Total combinational functions  ; 790 / 18,752 ( 4 % )                         ;
-;     Dedicated logic registers      ; 311 / 18,752 ( 2 % )                         ;
-; Total registers                    ; 311                                          ;
+; Total logic elements               ; 1,294 / 18,752 ( 7 % )                       ;
+;     Total combinational functions  ; 1,268 / 18,752 ( 7 % )                       ;
+;     Dedicated logic registers      ; 386 / 18,752 ( 2 % )                         ;
+; Total registers                    ; 386                                          ;
 ; Total pins                         ; 52 / 315 ( 17 % )                            ;
 ; Total virtual pins                 ; 0                                            ;
 ; Total memory bits                  ; 36,864 / 239,616 ( 15 % )                    ;
@@ -63,7 +63,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/19/2014 17:43:40 ;
+; Start date & time ; 06/20/2014 16:55:08 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; PONG                ;
 +-------------------+---------------------+
@@ -74,7 +74,7 @@ applicable agreement for further details.
 +------------------------------------+---------------------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                    ; Value                                             ; Default Value ; Entity Name ; Section Id     ;
 +------------------------------------+---------------------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID              ; 259853998169044.140321062005260                   ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID              ; 1097812794776.140329410864352                     ; --            ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP             ; 85                                                ; --            ; --          ; --             ;
 ; MIN_CORE_JUNCTION_TEMP             ; 0                                                 ; --            ; --          ; --             ;
 ; PARTITION_COLOR                    ; 16764057                                          ; --            ; --          ; Top            ;
@@ -90,11 +90,11 @@ applicable agreement for further details.
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name             ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis    ; 00:00:03     ; 1.0                     ; 252 MB              ; 00:00:04                           ;
-; Fitter                  ; 00:00:05     ; 1.0                     ; 249 MB              ; 00:00:06                           ;
-; Assembler               ; 00:00:02     ; 1.0                     ; 229 MB              ; 00:00:01                           ;
+; Analysis & Synthesis    ; 00:00:05     ; 1.0                     ; 254 MB              ; 00:00:07                           ;
+; Fitter                  ; 00:00:06     ; 1.0                     ; 243 MB              ; 00:00:08                           ;
+; Assembler               ; 00:00:02     ; 1.0                     ; 226 MB              ; 00:00:01                           ;
 ; Classic Timing Analyzer ; 00:00:01     ; 1.0                     ; 168 MB              ; 00:00:01                           ;
-; Total                   ; 00:00:11     ; --                      ; --                  ; 00:00:12                           ;
+; Total                   ; 00:00:14     ; --                      ; --                  ; 00:00:17                           ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -103,10 +103,10 @@ applicable agreement for further details.
 +-------------------------+------------------+---------------+------------+----------------+
 ; Module Name             ; Machine Hostname ; OS Name       ; OS Version ; Processor type ;
 +-------------------------+------------------+---------------+------------+----------------+
-; Analysis & Synthesis    ; Roger-PC         ; Windows Vista ; 6.1        ; x86_64         ;
-; Fitter                  ; Roger-PC         ; Windows Vista ; 6.1        ; x86_64         ;
-; Assembler               ; Roger-PC         ; Windows Vista ; 6.1        ; x86_64         ;
-; Classic Timing Analyzer ; Roger-PC         ; Windows Vista ; 6.1        ; x86_64         ;
+; Analysis & Synthesis    ; CygnusX-1        ; Windows Vista ; 6.1        ; x86_64         ;
+; Fitter                  ; CygnusX-1        ; Windows Vista ; 6.1        ; x86_64         ;
+; Assembler               ; CygnusX-1        ; Windows Vista ; 6.1        ; x86_64         ;
+; Classic Timing Analyzer ; CygnusX-1        ; Windows Vista ; 6.1        ; x86_64         ;
 +-------------------------+------------------+---------------+------------+----------------+
 
 

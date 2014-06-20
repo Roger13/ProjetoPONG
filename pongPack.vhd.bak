@@ -33,8 +33,9 @@ package pongPack is
 	COMPONENT game_eng
 		port ( players	: in STD_LOGIC_VECTOR (3 downto 0);	--	teclas precionados (p1 UP, p1 DOWN, p2 UP, p2 DOWN)
 		   rstn	: in STD_LOGIC;
+		   space : in STD_LOGIC;
    	       data : inout int_array;
-           score : std_logic_vector(7 downto 0);
+           score : inout std_logic_vector(7 downto 0);
            clk : in STD_LOGIC);
 	END COMPONENT ;
 	

@@ -23,7 +23,7 @@ package pongPack is
     
     COMPONENT display_ctrl
 		port(data	: in  int_array ;
-		score	: in std_logic_vector(7 downto 0) ;
+		score	: inout std_logic_vector(7 downto 0) ;
 		clk27M	: in STD_LOGIC;	--	27 MHz
 		red, green, blue : out std_logic_vector(3 downto 0) ;
         hsync, vsync : out std_logic ;
@@ -35,7 +35,7 @@ package pongPack is
 		   rstn	: in STD_LOGIC;
 		   space : in STD_LOGIC;
    	       data : inout int_array;
-           score : std_logic_vector(7 downto 0);
+           score : inout std_logic_vector(7 downto 0);
            clk : in STD_LOGIC);
 	END COMPONENT ;
 	

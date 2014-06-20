@@ -57,7 +57,7 @@ begin
 	
 	-- game_eng recebe os dados dos players e atualiza as posições e pontuações do jogo
 	  engine : game_eng port map(
-	  	players, KEY(2), data, score, clk27M
+	  	players, KEY(2), space, data, score, clk27M
 	  );
 	
 	-- display_ctrl recebe as posições dos objetos a serem exibidos e monta as representações
